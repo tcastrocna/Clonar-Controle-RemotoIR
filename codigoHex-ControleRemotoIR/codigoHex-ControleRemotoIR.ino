@@ -1,22 +1,17 @@
 #include <Arduino.h>
-#include <IRremote.h>
+#include <IRremote.hpp>
  
-int IR_RECV_PIN = 16;
- 
-IRrecv irrecv(IR_RECV_PIN);
-decode_results results;
- 
-void setup()
-{
+int IR_RECV_PIN = 16; //Define o pino do IR
+  
+void setup(){
   Serial.begin(9600);
-  irrecv.enableIRIn(); // Start the receiver
+  IrReceiver.begin(IR_RECV_PIN, ENABLE_LED_FEEDBACK);
 }
  
 void loop()
 {
-  if (irrecv.decode(&results))
-  {
-  Serial.println(results.value, HEX); //print the HEX code
-  irrecv.resume();
-  }
+  if (IrReceiver.decode()){
+  Serial.println(IrReceiver.decodedIRData.decodedRawData, HEX); //Imprime o códio Hexadecimal.
+  IrReceiver.resume();
+}
 }
