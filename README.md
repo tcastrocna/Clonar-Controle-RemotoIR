@@ -1,4 +1,4 @@
-# sensorIR
+# Clonar Código Hexadecimal de Controle Remoto Usando Receptor IR.
 Clonar código Hexadecimal de controle remoto para usar nos projetos que requer controle via controle remoto.
 
 **Bibliotecas utilizadas:**
